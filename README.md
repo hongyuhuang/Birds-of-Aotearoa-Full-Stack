@@ -3,7 +3,7 @@ The objective of the project was to create a back-end that built on top of the f
 
 The website is a multi page web application and connected to a database hosted on MongoDB. On the main page it allows the user to search by keyword, filter by conservation status and sort by various categories. On the other pages CRUD functions are implemented to allow the creation, viewing, updating and deleting of birds to the database. A MVC model is used with Pug HTML being used as the template and Node.js being used for the routes and controllers. 
 
-This page is hosted at https://birds-of-aotearoa.herokuapp.com/birds/ but note it might take a while to load. Otherwise it can be run be cloning the repo and running `npm install` and then `npm run start`.
+This page is hosted at https://birds-of-aotearoa.herokuapp.com/birds/. Note it might take a while to load at first. Otherwise it can be run be cloning the repo and running `npm install` and then `npm run start`.
 
 Some improvement I would make would be to make more responsive on mobile devices.
 
