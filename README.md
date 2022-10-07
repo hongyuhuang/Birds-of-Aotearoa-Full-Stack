@@ -5,6 +5,8 @@ The website is a multi page web application and connected to a database hosted o
 
 This page is hosted at https://birds-of-aotearoa.herokuapp.com/birds/ but note it might take a while to load. Otherwise it can be run be cloning the repo and running `npm install` and then `npm run start`.
 
+Some improvement I would make would be to make more responsive on mobile devices.
+
 <img width="1440" alt="Screen Shot 2022-10-07 at 8 25 21 PM" src="https://user-images.githubusercontent.com/31984374/194496781-a65f0c36-76e8-46bf-93b2-f8c340f328bb.png">
 
 <img width="1440" alt="Screen Shot 2022-10-07 at 8 25 51 PM" src="https://user-images.githubusercontent.com/31984374/194496820-e82111ea-6a74-4a69-a0bd-db6966da4fc9.png">
