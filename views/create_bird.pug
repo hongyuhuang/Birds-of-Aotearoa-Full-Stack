@@ -1,0 +1,81 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Birds Of Aotearoa
+  link(href='/styles/other.css' rel='stylesheet')
+  link(href='/styles/cards.css' rel='stylesheet')
+  link(href='/styles/header.css' rel='stylesheet')
+  link(href='/styles/form.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans' rel='stylesheet')
+  link(href='https://css.gg/home-alt.css' rel='stylesheet')
+  link(href='https://css.gg/math-plus.css' rel='stylesheet')
+  script(defer, src='../../public/scripts/preview_photo.js')
+include templates/header.pug
+main
+  div(class="form")
+    h2(id="add_new_bird") Add New Bird
+    form(action='/birds/create' method='POST' enctype='multipart/form-data')
+      input(type='hidden' name='id')
+      fieldset
+        legend Common Names
+        label(for='primary_name') Primary Name
+        input(type='text' name='primary_name' value='' required='')
+        label(for='english_name') English Name
+        input(type='text' name='english_name' value='' required='')
+        label(for='other_names') Other Names
+        textarea(name='other_names' rows='10' cols='50')
+      fieldset
+        legend Taxonomy
+        label(for='scientific_name') Scientific Name
+        input(type='text' name='scientific_name' value='' required='')
+        label(for='order') Order
+        input(type='text' name='order' value='' required='')
+        label(for='family') Family
+        input(type='text' name='family' value='' required='')
+      fieldset
+        legend Size
+        label(for='length') Length (cm)
+        input(type='number' name='length' value='0')
+        label(for='weight') Weight (g)
+        input(type='number' name='weight' value='0')
+      fieldset
+        legend Conservation
+        label(for='status') Status
+        select(name='status' id='status')
+          option(selected='') Not Threatened
+          option Naturally Uncommon
+          option Relict
+          option Recovering
+          option Declining
+          option Nationally Increasing
+          option Nationally Vulnerable
+          option Nationally Endangered
+          option Nationally Critical
+          option Data Deficient
+      fieldset
+        legend Photo
+        label(for='photo_credit') Photo Credit
+        input(type='text' name='photo_credit' value='' required='')
+        label(for='photo_upload') Upload New Photo
+        script.
+          function preview_image(event) {
+             var reader = new FileReader();
+             reader.onload = function()
+             {
+              var preview = document.getElementById('upload_preview');
+              preview.src = reader.result;
+
+              var fileName = document.getElementById('photo_upload').files[0].name;
+              var source = document.getElementById('upload_source');
+              source.value = fileName;
+             }
+             reader.readAsDataURL(event.target.files[0]);
+          }
+        input(type='file' name='photo_upload' id='photo_upload' onchange="preview_image(event)")
+        label(for='photo_source')
+        img(src='/images/default.png' alt='Placeholder Image' id='upload_preview')
+        input(type='text' name='photo_source' readonly='readonly' id='upload_source' value='default.png')
+      button(class="save_bird" type='submit') SAVE BIRD
+include templates/footer.pug

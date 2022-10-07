@@ -1,0 +1,69 @@
+/* Style inputs with type="text", select elements and textareas */
+input, select, textarea {
+    width: 100%; /* Full width */
+    padding: 5px; /*Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 3px; /* Add a top margin */
+    margin-bottom: 8px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+fieldset {
+    border: 0;
+}
+
+legend {
+    font-weight: bold;
+    font-size: medium;
+    margin: 0;
+}
+
+.form {
+    padding: 25px;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    font-size: small;
+    border-radius: 10px;
+    display: box;
+    overflow:auto;
+    background-color: #eeeeee;
+}
+
+#add_new_bird {
+    margin-left: 11.75px;
+    padding: 5px;
+}
+
+.save_bird {
+    width: calc(100% - 23.5px);
+    margin-left: 11.75px;
+}
+
+#photo_upload {
+    border: 0;
+    resize: none;
+    padding: 0;
+}
+
+input::file-selector-button {
+    background-color: white;
+    padding: 5px; /*Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+}
+
+input::file-selector-button:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    
+}
+
+#upload_preview {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-width: 100%;
+}

@@ -1,0 +1,25 @@
+section(class="card")
+    div(class="container")
+        img(class="small-image" src=`/images/${bird.photo.source}` alt=`Photo of ${bird.primary_name}`)
+        h2(class="primaryName")=bird.primary_name
+        span(class="credit")=`Photo by: ${bird.photo.credit}`
+        div(class=`conservationColour ${bird.status.replace(' ', '-')}`)
+    h2(class="englishName")=bird.english_name
+    div(class="card-label-small")
+        p Scientific Name: 
+        p Family: 
+        p Order: 
+        p Status: 
+        p Length: 
+        p Weight: 
+    div(class="card-txt-small")
+        p=bird.scientific_name
+        p=bird.order
+        p=bird.family
+        p=bird.status
+        p=`${bird.size.length.value} ${bird.size.length.units}`
+        p=`${bird.size.weight.value} ${bird.size.weight.units}`
+    div(class="buttons")
+        a(href=`/birds/${bird._id}`) 
+            button(type="button") VIEW BIRD
+            

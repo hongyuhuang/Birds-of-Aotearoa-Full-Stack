@@ -1,0 +1,66 @@
+/* conservation colours */
+.Not-Threatened {
+    background: #02a028
+}
+.Naturally-Uncommon {
+    background: #649a31;
+}
+.Relict {
+    background: #99cb68;
+}
+.Recovering {
+    background: #fecc33;
+}
+.Declining {
+    background: #fe9a01;
+}
+.Nationally-Increasing {
+    background: #c26967;
+}
+.Nationally-Vulnerable {
+    background: #9b0000;
+}
+.Nationally-Endangered {
+    background: #660032;
+}
+.Nationally-Critical {
+    background: #320033;
+}
+.Data-Deficient {
+    background: black;
+}
+.Extinct {
+    background: black;
+}
+
+/* Parent div for conservation status colours */
+.conservation-colours{
+    float: left;
+    width: 10%;
+    margin-top: 5px;
+}
+
+/* Div for conservation status colours */
+.conservation-colours .colour{
+    margin: 1px;
+}
+
+/* Parent div for conservation status text */
+.conservation-text{
+    float: right;
+    width: 90%;
+}
+
+/* Conservation status text */ 
+.conservation-text p{
+    margin: 8px;
+}
+
+.colour {
+    border:2px solid white;
+    border-radius: 10px;
+    width:16px;
+    height:16px;
+    display:inline-block;
+    margin-right: 10px;
+}

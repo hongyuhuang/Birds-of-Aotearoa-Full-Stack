@@ -1,0 +1,81 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Birds Of Aotearoa
+  link(href='/styles/other.css' rel='stylesheet')
+  link(href='/styles/cards.css' rel='stylesheet')
+  link(href='/styles/header.css' rel='stylesheet')
+  link(href='/styles/form.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans' rel='stylesheet')
+  link(href='https://css.gg/home-alt.css' rel='stylesheet')
+  link(href='https://css.gg/math-plus.css' rel='stylesheet')
+include templates/header.pug
+main
+  div(class="form")
+    h2(id="add_new_bird") Add New Bird
+    form(action=`/birds/${bird._id}/update` method='POST' enctype='multipart/form-data')
+      input(type='hidden' name='id' value=`${bird.id}`)
+      fieldset
+        legend Common Names
+        label(for='primary_name') Primary Name
+        input(type='text' name='primary_name' value=`${bird.primary_name}` required='')
+        label(for='english_name') English Name
+        input(type='text' name='english_name' value=`${bird.english_name}` required='')
+        label(for='other_names') Other Names
+        - var finalString = bird.other_names.join('\r\n');
+        textarea(name='other_names' rows='10' cols='50')=finalString
+      fieldset
+        legend Taxonomy
+        label(for='scientific_name') Scientific Name
+        input(type='text' name='scientific_name' value=`${bird.scientific_name}` required='')
+        label(for='order') Order
+        input(type='text' name='order' value=`${bird.order}` required='')
+        label(for='family') Family
+        input(type='text' name='family' value=`${bird.family}` required='')
+      fieldset
+        legend Size
+        label(for='length') Length (cm)
+        input(type='number' name='length' value=`${bird.size.length.value}`)
+        label(for='weight') Weight (g)
+        input(type='number' name='weight' value=`${bird.size.weight.value}`)
+      fieldset
+        legend Conservation
+        label(for='status') Status
+        select(name='status' id='status')
+          option(selected=(bird.status == "Not Threatened"))  Not Threatened
+          option(selected=(bird.status == "Naturally Uncommon")) Naturally Uncommon
+          option(selected=(bird.status == "Relict")) Relict
+          option(selected=(bird.status == "Recovering")) Recovering
+          option(selected=(bird.status == "Declining")) Declining
+          option(selected=(bird.status == "Nationally Increasing")) Nationally Increasing
+          option(selected=(bird.status == "Nationally Vulnerable")) Nationally Vulnerable
+          option(selected=(bird.status == "Nationally Endangered")) Nationally Endangered
+          option(selected=(bird.status == "Nationally Critical")) Nationally Critical
+          option(selected=(bird.status == "Data Deficient")) Data Deficient
+      fieldset
+        legend Photo
+        label(for='photo_credit') Photo Credit
+        input(type='text' name='photo_credit' value=`${bird.photo.credit}`)
+        label(for='photo_upload') Upload New Photo
+        script.
+          function preview_image(event) {
+             var reader = new FileReader();
+             reader.onload = function()
+             {
+              var preview = document.getElementById('upload_preview');
+              preview.src = reader.result;
+
+              var fileName = document.getElementById('photo_upload').files[0].name;
+              var source = document.getElementById('upload_source');
+              source.value = fileName;
+             }
+             reader.readAsDataURL(event.target.files[0]);
+          }
+        input(type='file' name='photo_upload' id='photo_upload' onchange="preview_image(event)")
+        label(for='photo_source')
+        img(src=`/images/${bird.photo.source}` alt='Placeholder Image' id='upload_preview')
+        input(type='text' name='photo_source' readonly='readonly' id='upload_source' value=`${bird.photo.source}`)
+      button(class="/" type='submit') SAVE BIRD
+include templates/footer.pug

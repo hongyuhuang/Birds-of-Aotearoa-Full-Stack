@@ -1,0 +1,175 @@
+* {
+    /* Text */
+    font-family: 'Open Sans', sans-serif;
+}
+
+body { 
+    margin: 0;
+
+    /* Colour */
+    background-color: white;
+
+    /* Other */
+    overflow-x: hidden;
+
+    overscroll-behavior-y: none;
+}
+
+main { 
+    /*Display & Box Model */
+    display: flex;
+
+    /* Positioning */
+    grid-area: main;
+    gap: 50px;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+
+    /* Colour */
+    background-color: white;
+}
+footer { 
+    /* Positioning */
+    position: relative;
+
+    /* Display */
+    width: 100%;
+    align-items: center; 
+    justify-content: center; 
+
+    /* Colour */
+    color: white;
+    background-color: #0077b6;
+
+    /* Text */
+    text-align: center;
+    font-size: small;
+}
+
+span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.sidebar {
+    /* Display */
+    background-color: #eeeeee;
+    position: sticky;
+    display: block;
+}
+
+header, .sidebar, footer, .card{
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);    
+}
+
+.sidebar h2 {
+    padding-top: 12px;
+    margin: 0;
+}
+
+form {
+    padding: 1vh;
+    font-size: small;
+}
+
+a {
+    color: #0000EE;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 10px;
+}
+
+h1 {
+    margin: auto;
+}
+
+button {
+    width: 100%;
+    color: #ffffff;
+    background-color: #00b4d8;
+    border-radius: 4px;
+    border: 1px solid #00b4d8;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #33c3e0;
+    border-color: #33c3e0;
+}
+
+.sidebar span{
+    color: black;
+}
+span{
+    color: white;
+}
+
+/* Small screens (phones) */
+@media (max-width: 1044px) {
+    .conservation-colours{
+        width: 1%;
+        margin-top: 5px;
+    }
+    .conservation-text{
+        float: right;
+        width: 95%;
+    }
+
+    .sidebar {
+        position: relative;
+        padding-top: 64px;
+    }
+}
+/* Large screens (laptops) */
+@media (min-width: 1045px) {
+    body {
+        /* Display & Box Model */
+        display: grid;
+        grid-template-columns: 20.25vw auto;
+        grid-template-rows: 64px minmax(calc(100vh - 84px), 1fr) 20px;
+        
+        grid-template-areas: 
+        'header header' 
+        'sidebar main'
+        'footer footer';
+    }
+    header {
+        /*Display & Box Model */
+        display: flex;
+        grid-area: header;
+        grid-column: span 2;
+    }
+
+    footer {
+        display: flex;
+        grid-area: footer;
+        grid-column: span 2;
+        padding: 5px;
+        height: 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        grid-area: sidebar;
+        width:  20.25vw;
+        height: calc(100% - 64px);
+        padding-top: 64px;
+    }
+}
+
+
+
+
+
+
+
+

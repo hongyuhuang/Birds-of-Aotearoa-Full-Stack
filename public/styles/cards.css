@@ -1,0 +1,111 @@
+.card {
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    font-size: small;
+    border-radius: 10px;
+    display: box;
+    overflow:auto;
+}
+
+.card-label-small {
+    float:left;
+    width: 28%;
+    font-weight: bolder;
+    padding-left: 25px;
+}
+
+
+.card-txt-small {
+    float: right;
+    width: 60%;
+}
+
+.card-label-big {
+    float:left;
+    width: 10%;
+    font-weight: bolder;
+    padding-left: 25px;
+}
+
+
+.card-txt-big {
+    float: right;
+    width: 85%;
+}
+
+.englishName {
+    padding-left: 25px;
+}
+
+.container {
+    position: relative;
+}
+
+.primaryName {
+    position: absolute;
+    bottom: 35px;
+    left: 25px;
+    color: white;
+}
+
+.credit {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: white;
+}
+
+.conservationColour {
+    position: absolute;
+    bottom: -25px;
+    right: 25px;  
+    border:4px solid white;
+    border-radius: 30px;
+    width:50px;
+    height:50px;
+}
+
+.buttons a {
+    display: inline-block;
+    margin-top: 13px;
+    margin-bottom: 26px;
+    margin-left: 25px;
+}
+
+.buttons button {
+    width: 300px;
+}
+
+img {
+    object-fit: cover;
+    position: relative;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.big-image {
+    width: 100%;
+    height: 56.25%;
+}
+
+.small-image {
+    width:350px;
+    height:300px;
+}
+
+.edit-bird {
+    width: calc(50% - 50px);
+    float:left;
+    margin-left: 25px;
+    margin-top: 13px;
+    margin-bottom: 26px;
+}
+
+.delete-bird {
+    width: calc(50% - 50px);
+    float: right;
+    margin-right: 25px;
+    margin-top: 13px;
+    margin-bottom: 26px;
+}

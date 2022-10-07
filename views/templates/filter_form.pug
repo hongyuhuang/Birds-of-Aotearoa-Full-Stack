@@ -1,0 +1,68 @@
+div(class="sidebar")
+  form(action='' method='' id="filter-birds")
+    h2 Filter Birds
+    
+    label Search:
+    input(type='text' name='search' id='search' autocomplete='off')
+
+    label(for='status') Conservation Status:
+    select(name='status' id='status')
+      option All
+      option Not Threatened
+      option Naturally Uncommon
+      option Relict
+      option Recovering
+      option Declining
+      option Nationally Increasing
+      option Nationally Vulnerable 
+      option Nationally Endangered
+      option Nationally Critical
+      option Extinct
+      option Data Deficient
+    
+    label(for='sort') Sort By:
+    select(name='sort' id='sort')
+      option(value='Default') Default
+      option(value='Alphabetical-English') A - Z (English)
+      option(value='Alphabetical-Maori') A - Z (Maori)
+      option(value='Alphabetical-Scientific') A - Z (Scientific)
+      option(value='Family') Family
+      option(value='Order') Order
+      option(value='Lighest-heaviest') Lighest to heaviest
+      option(value='Heaviest-lighest') Heaviest to lighest
+      option(value='Smallest-largest') Smallest to largest
+      option(value='Largest-smallest') Largest to smallest
+    
+    button(type='submit') FILTER RESULT
+    
+    p= `${birds.length} birds found` 
+    
+    h2 Conservation Status
+    div(class="conservation-colours")
+      div(class="colour Not-Threatened")
+      div(class="colour Naturally-Uncommon")
+      div(class="colour Relict")
+      div(class="colour Recovering")
+      div(class="colour Declining")
+      div(class="colour Nationally-Increasing")
+      div(class="colour Nationally-Vulnerable")
+      div(class="colour Nationally-Endangered")
+      div(class="colour Nationally-Critical")
+      div(class="colour Extinct")
+      div(class="colour Data-Deficient")
+    div(class="conservation-text")
+      p Not Threatened
+      p Naturally Uncommon
+      p Relict
+      p Recovering
+      p Declining
+      p Nationally Increasing
+      p Nationally Vulnerable
+      p Nationally Endangered
+      p Nationally Critical
+      p Extinct
+      p Data Deficient
+    
+    span
+      | Conservation status from 
+      a(href='https://www.doc.govt.nz/') DOC Website

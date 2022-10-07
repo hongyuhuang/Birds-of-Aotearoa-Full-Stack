@@ -1,0 +1,44 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Birds Of Aotearoa
+  link(href='/styles/other.css' rel='stylesheet')
+  link(href='/styles/cards.css' rel='stylesheet')
+  link(href='/styles/header.css' rel='stylesheet')
+  link(href='/styles/conservation-status.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans' rel='stylesheet')
+  link(href='https://css.gg/home-alt.css' rel='stylesheet')
+  link(href='https://css.gg/math-plus.css' rel='stylesheet')
+  script(defer, src='/scripts/populate_form.js')
+include templates/header.pug
+main
+  section(class="card")
+    div(class="container")
+      img(class="big-image" src=`/images/${bird.photo.source}` alt=`Photo of ${bird.primary_name}`)
+      h2(class="primaryName")=bird.primary_name
+      span(class="credit")=`Photo by: ${bird.photo.credit}`
+      div(class=`conservationColour ${bird.status.replace(' ', '-')}`)
+    h2(class="englishName")=bird.english_name
+    div(class="card-label-big")
+      p Scientific Name: 
+      p Family: 
+      p Order: 
+      p Status: 
+      p Length: 
+      p Weight: 
+    div(class="card-txt-big")
+      p=bird.scientific_name
+      p=bird.order
+      p=bird.family
+      p=bird.status
+      p=`${bird.size.length.value} ${bird.size.length.units}`
+      p=`${bird.size.weight.value} ${bird.size.weight.units}`
+    div(class="edit-bird")
+      a(href=`/birds/${bird._id}/update`) 
+        button(type="button") EDIT BIRD
+    div(class="delete-bird")
+      a(href=`/birds/${bird._id}/delete`) 
+        button(type="button") DELETE BIRD
+include templates/footer.pug
